@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .fixed-img {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 30rem;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .card-title {
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  /* Added CSS to remove margin from .row */
+  .row {
+    margin: 0;
+  }
+</style>
+
+<hr>
+
+<div class="row">
+  {% for each in object_list %}
+    <div class="col-md-3 mb-4">
+      <div class="card" style="width: 13rem;">
+        <img src="{{ each.image_url }}" class="card-img-top fixed-img" alt="{{ each.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ each.title|slice:":25" }}</h5>
+          <p class="card-text">₹ {{ each.price|floatformat:2 }}</p>
+          {% if each.book_available %}
+            <li class="text-primary">Available</li>
+          {% else %}
+            <li class="text-danger">Out of Stock !</li>
+          {% endif %}<br>
+          <a href="{% url 'detail' each.id %}" class="btn btn-primary">View</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

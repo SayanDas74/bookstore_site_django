@@ -1,0 +1,68 @@
+h1 {
+  color: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #1e203a;
+}
+
+body {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  position: relative;
+  margin-left: 250px;
+  width: 900px;
+  height: 50px;
+  text-align: center;
+  line-height: 55px;
+  background: white; /* changed to white */
+  border-radius: 30px;
+  overflow: hidden;
+  transition: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  color: white; /* added to change text color inside .search */
+}
+
+.search .search-icon {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.search input {
+  display: block;
+  position: absolute;
+  background: transparent;
+  color: #000000;
+  height: 32px;
+  font-size: larger;
+  top: 8px;
+  left: 20px;
+  width: 230px;
+}
+
+.search input::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.btn-group .nav-link.dropdown-toggle {
+  color: white;
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+}
